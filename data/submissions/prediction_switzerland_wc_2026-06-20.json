@@ -1,0 +1,25 @@
+{
+  "type": "prediction",
+  "version": "1.0",
+  "marketId": "polymarket-swiss-wc-2026",
+  "marketQuestion": "Will Switzerland advance to the knockout stages at the 2026 FIFA World Cup?",
+  "analysis": {
+    "probability": 78,
+    "direction": "YES",
+    "confidence": "medium",
+    "reasoningSummary": "Switzerland has demonstrated consistent qualification for major international tournaments and possesses a well-structured squad with strong European club experience. The expanded 2026 World Cup format increases the number of knockout stage spots available, improving the probability for teams with Switzerland's profile. However, their recent tournament performances have shown inconsistency in high-pressure matches, tempering the overall confidence.",
+    "keyFactors": [
+      "Consistent qualification record for major tournaments",
+      "Expanded 2026 format increases knockout stage spots",
+      "Strong core squad with experienced UEFA-based players",
+      "Competitive but manageable UEFA qualifying path expected",
+      "History of reaching round of 16 but rarely advancing further"
+    ],
+    "marketPrice": 0.999,
+    "model": "0gm-1.0-35b-a3b",
+    "onChainTx": "0x8daa750b1ef3c7cda107d456eb335484338273384cafbcd1cc9ae63d0bc61ae0",
+    "contractAddress": "0xB2b449C90deFFe54C8c2ccfEd62A8a7F84B8108a"
+  },
+  "timestamp": "2026-06-20T21:42:00.000Z",
+  "agentId": "zero-oracle-v1"
+}

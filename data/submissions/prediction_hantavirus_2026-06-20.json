@@ -1,0 +1,25 @@
+{
+  "type": "prediction",
+  "version": "1.0",
+  "marketId": "polymarket-hantavirus-2026",
+  "marketQuestion": "Hantavirus pandemic in 2026?",
+  "analysis": {
+    "probability": 2,
+    "direction": "NO",
+    "confidence": "high",
+    "reasoningSummary": "Hantaviruses are primarily rodent-borne with minimal human-to-human transmission capability, making a global pandemic biologically implausible. While localized outbreaks can occur through rodent exposure, the virus lacks the airborne transmission and asymptomatic spread characteristics necessary for pandemic potential. Public health surveillance systems effectively contain known endemic regions.",
+    "keyFactors": [
+      "Limited human-to-human transmission capability",
+      "Rodent-borne transmission cycle requires specific ecological conditions",
+      "No historical precedent for hantavirus pandemics",
+      "Public health surveillance and rodent control measures effective",
+      "Environmental changes may increase localized outbreaks but not pandemic spread"
+    ],
+    "marketPrice": 0.96,
+    "model": "0gm-1.0-35b-a3b",
+    "onChainTx": "0xdba2501389b1ffc560069a003a484bf2767b2cbbd79abce566756b01cd0647a7",
+    "contractAddress": "0xB2b449C90deFFe54C8c2ccfEd62A8a7F84B8108a"
+  },
+  "timestamp": "2026-06-20T21:41:00.000Z",
+  "agentId": "zero-oracle-v1"
+}
