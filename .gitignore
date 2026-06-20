@@ -5,3 +5,12 @@ build/
 *.log
 coverage/
 .DS_Store
+contracts/artifacts/
+contracts/cache/
+contracts/typechain-types/
+contracts/node_modules/
+contracts/package-lock.json
+agent/package-lock.json
+frontend/node_modules/
+frontend/package-lock.json
+data/
