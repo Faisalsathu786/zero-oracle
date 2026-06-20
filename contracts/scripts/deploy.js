@@ -6,9 +6,9 @@ async function main() {
 
   const OracleRegistry = await hre.ethers.getContractFactory("OracleRegistry");
   const registry = await OracleRegistry.deploy();
-  await registry.deployed();
+  await registry.waitForDeployment();
 
-  console.log("OracleRegistry deployed to:", registry.address);
+  console.log("OracleRegistry deployed to:", await registry.getAddress());
   console.log("Network:", hre.network.name);
   console.log("Owner:", deployer.address);
 }

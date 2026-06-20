@@ -13,7 +13,8 @@ class PolymarketSource {
     const url = `${this.baseUrl}/markets?tag=${tag}&limit=${limit}`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`Polymarket API error: ${res.status}`);
-    return res.json();
+    const json = await res.json();
+    return json.data || json;
   }
 
   async getMarket(marketId) {
@@ -26,8 +27,9 @@ class PolymarketSource {
   async getMarketPrice(marketId) {
     const url = `${this.baseUrl}/prices?market=${marketId}`;
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`Polymarket price error: ${res.status}`);
-    return res.json();
+    if (!res.ok) return null;
+    const json = await res.json();
+    return json.price || json;
   }
 }
 

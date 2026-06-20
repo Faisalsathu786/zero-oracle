@@ -2,7 +2,7 @@ require('@nomicfoundation/hardhat-toolbox');
 
 module.exports = {
   solidity: {
-    version: "0.8.19",
+    version: "0.8.27",
     settings: {
       evmVersion: "cancun",
       optimizer: {

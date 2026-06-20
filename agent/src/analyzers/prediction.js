@@ -33,7 +33,7 @@ Respond with a JSON object containing:
         { role: 'user', content: userPrompt }
       ],
       temperature: 0.3,
-      max_tokens: 1024,
+      max_tokens: 3000,
       response_format: { type: 'json_object' }
     });
 
