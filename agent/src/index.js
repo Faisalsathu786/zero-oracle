@@ -138,12 +138,12 @@ function createServer() {
   app.use(express.json({ limit: '1mb' }));
 
   // Health
-  app.get('/health', (req, res) => {
+  app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
   });
 
   // Auth routes
-  app.post('/auth/signup', async (req, res) => {
+  app.post('/api/auth/signup', async (req, res) => {
     try {
       const { email, password, name } = req.body;
       if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
@@ -154,7 +154,7 @@ function createServer() {
     }
   });
 
-  app.post('/auth/login', async (req, res) => {
+  app.post('/api/auth/login', async (req, res) => {
     try {
       const { email, password } = req.body;
       if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
@@ -165,14 +165,14 @@ function createServer() {
     }
   });
 
-  app.get('/auth/me', authMiddleware, (req, res) => {
+  app.get('/api/auth/me', authMiddleware, (req, res) => {
     const user = auth.getUserById(req.user.userId);
     if (!user) return res.status(404).json({ error: 'User not found' });
     res.json({ user });
   });
 
   // Analysis routes (protected)
-  app.post('/analyze-url', authMiddleware, async (req, res) => {
+  app.post('/api/analyze-url', authMiddleware, async (req, res) => {
     try {
       const { url } = req.body;
       if (!url) return res.status(400).json({ error: 'Polymarket URL required' });
@@ -191,7 +191,7 @@ function createServer() {
     }
   });
 
-  app.post('/analyze', authMiddleware, async (req, res) => {
+  app.post('/api/analyze', authMiddleware, async (req, res) => {
     try {
       const { marketId, tag, limit } = req.body;
       if (marketId) {
@@ -206,7 +206,7 @@ function createServer() {
   });
 
   // User history
-  app.get('/history', authMiddleware, (req, res) => {
+  app.get('/api/history', authMiddleware, (req, res) => {
     const analyses = auth.getAnalyses(req.user.userId);
     res.json({ analyses });
   });

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const API_URL = process.env.REACT_APP_API_URL || '';
+
 function App() {
   const [page, setPage] = useState('home');
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -140,7 +142,7 @@ function LoginPage({ onLogin, onSwitch }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(API_URL + '/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -185,7 +187,7 @@ function SignupPage({ onSignup, onSwitch }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch(API_URL + '/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, name })
@@ -231,7 +233,7 @@ function AnalyzePage({ token }) {
     setError('');
     setResult(null);
     try {
-      const res = await fetch('/api/analyze-url', {
+      const res = await fetch(API_URL + '/api/analyze-url', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -360,7 +362,7 @@ function HistoryPage({ token }) {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch('/api/history', {
+    fetch(API_URL + '/api/history', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(r => r.json())
