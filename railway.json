@@ -1,0 +1,11 @@
+{
+  "build": {
+    "builder": "nixpacks",
+    "buildCommand": "cd agent && npm install"
+  },
+  "deploy": {
+    "startCommand": "cd agent && node src/index.js",
+    "healthcheckPath": "/api/health",
+    "restartPolicyType": "always"
+  }
+}
