@@ -17,13 +17,22 @@ const PORT = process.env.PORT || 3000;
 
 // Extract Polymarket market ID from URL
 function extractMarketId(url) {
-  const match = url.match(/polymarket\.com\/event\/([^/?]+)/i);
+  // Check for direct condition ID (0x...)
+  if (url.startsWith('0x')) return url;
+  
+  // Extract from polymarket URLs
+  let match = url.match(/polymarket\.com\/event\/([^/?]+)/i);
   if (match) return match[1];
   
-  const match2 = url.match(/polymarket\.com\/market\/([^/?]+)/i);
-  if (match2) return match2[1];
+  match = url.match(/polymarket\.com\/market\/([^/?]+)/i);
+  if (match) return match[1];
   
-  return url;
+  // Check for token/id parameter
+  match = url.match(/[?&]id=([^&]+)/);
+  if (match) return match[1];
+  
+  // Return as-is (could be slug or condition ID)
+  return url.trim();
 }
 
 async function analyzePolymarketUrl(url) {
